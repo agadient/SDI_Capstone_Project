@@ -50,3 +50,10 @@ added to App.jsx:
 Wrapped anything needed Auth for inside ReactKeycloakProvider tag
 
 See App.jsx for example usage
+
+_________________ For Express
+
+Installed:
+Axios
+
+Added Logic to App.jsx to include sending the token to the global scope, adding a require for Axios intercepter, and an API call to get some test data. 
