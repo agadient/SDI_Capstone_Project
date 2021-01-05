@@ -25,15 +25,17 @@ var keycloakConfig =
 
 const initKeycloak = () =>{
     if (keycloak){
+
         return keycloak;
     }
     else { 
-        
+        console.log("init keycloak")
         var memoryStore = new session.MemoryStore();
         var keycloak = new Keycloak({
             store: memoryStore,
         },keycloakConfig);
         return keycloak;
+        
     }
     
     
