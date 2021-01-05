@@ -10,6 +10,9 @@ describe('Data API Integration Test', () => {
     let task = {
         title: 'new data'
     };
+    let badTask = {
+        name: 'new data'
+    };
     describe("POST /api/data", () => {
       it("should create data entry", (done) => {
         request(app)
@@ -19,6 +22,17 @@ describe('Data API Integration Test', () => {
             expect(res.statusCode).to.equal(201);
             expect(res.body.title).to.equal("new data");
             task = res.body;
+            done();
+          });
+      });
+    });
+    describe("POST /api/data", () => {
+      it("should return 400 error", (done) => {
+        request(app)
+          .post("/api/data")
+          .send(badTask)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
             done();
           });
       });
