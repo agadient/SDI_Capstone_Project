@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  postgres-express:
+      image: postgres:12.2
+      container_name: postgres-express
+      environment:
+        POSTGRES_DB: express
+        POSTGRES_USER: express
+        POSTGRES_PASSWORD: express
+      ports:
+        - 5432:5432
+      volumes:
+        - ./init.sql:/docker-entrypoint-initdb.d/init-database.sql

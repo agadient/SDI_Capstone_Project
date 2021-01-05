@@ -1,23 +1,28 @@
 {
   "development": {
-    "username": "averymerriex",
-    "password": null,
-    "database": "practice-dev",
+    "username": "express",
+    "password": "express",
+    "database": "express",
     "host": "127.0.0.1",
+    "port": 5432,
     "dialect": "postgres"
   },
   "test": {
-    "username": "averymerriex",
-    "password": null,
-    "database": "practice-dev",
+    "username": "express",
+    "password": "express",
+    "database": "express",
     "host": "127.0.0.1",
+    "port": 5432,
     "dialect": "postgres"
   },
   "production": {
-    "username": "averymerriex",
-    "password": null,
-    "database": "practice-dev",
+    "username": "express",
+    "password": "express",
+    "database": "express",
     "host": "127.0.0.1",
+    "port": 5432,
     "dialect": "postgres"
   }
 }
+
+
