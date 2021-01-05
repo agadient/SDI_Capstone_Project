@@ -57,10 +57,8 @@ public class ControllerTest {
                 "  \"email\": \"joel@joel.com\",\n" +
                 "  \"password\": \"joel\"\n" +
                 "}";
+//provide a mock
 
-//        HashMap
-//        ObjectMapper objMap = new ObjectMapper();
-//        String json = objMap.writeValueAsString();
         this.mvc.perform(
                 post("/signin")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -79,18 +77,4 @@ public class ControllerTest {
         URL url = this.getClass().getResource(path);
         return new String(Files.readAllBytes(Paths.get(url.toURI())));
     }
-
-//    @Test
-//    @WithMockAuthentication(authorities = "user")
-//    String json = getJSON("/data.json").toString();
-//    public void getSignin() throws Exception{
-//        this.mvc.perform(
-//                get("/signin")
-//                        .accept(MediaType.APPLICATION_JSON)
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string(containsString()));
-//
-//
-//    }
 }
