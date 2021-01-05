@@ -17,14 +17,14 @@ describe('Data API Integration Test', async () => {
     // Add dummy tests so the server can connect to the database before we test
     // that connection
     for (let i = 0; i < 20; i++) {
-    describe("GET /asdfasdf", () => {
+      describe("GET /asdfasdf", () => {
         it("should return 400 error", (done) => {
           request(app)
             .get("/asdfasdf")
             .send(badTask)
             .end((err, res) => {
-              expect(res.statusCode).to.equal(404);
-              done();
+            expect(res.statusCode).to.equal(404);
+            done();
             });
         });
       });
