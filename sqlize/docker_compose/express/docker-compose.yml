@@ -9,6 +9,4 @@ services:
         POSTGRES_USER: express
         POSTGRES_PASSWORD: express
       ports:
-        - 5432:5432
-      volumes:
-        - ./init.sql:/docker-entrypoint-initdb.d/init-database.sql
+        - 8001:5432
