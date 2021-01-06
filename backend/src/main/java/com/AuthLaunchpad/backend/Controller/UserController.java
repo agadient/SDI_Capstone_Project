@@ -1,5 +1,6 @@
 package com.AuthLaunchPad.backend.Controller;
 
+import com.AuthLaunchPad.backend.Model.Sample;
 import com.AuthLaunchPad.backend.UserDTO;
 import org.keycloak.authorization.client.AuthzClient;
 import org.keycloak.authorization.client.Configuration;
