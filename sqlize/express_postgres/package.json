@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./start_server.sh & sleep 5 && mocha",
-    "coverage" : "nyc npm run test",
+    "coverage": "nyc npm run test",
     "start:dev": "nodemon ./bin/www.js"
   },
   "author": "",
@@ -18,7 +18,8 @@
     "keycloak-connect": "^12.0.1",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-      "sequelize-cli": "^6.2.0"
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
