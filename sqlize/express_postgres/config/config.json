@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "express",
+    "password": "express",
+    "database": "express",
+    "host": "127.0.0.1",
+    "port": 8001,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "express",
+    "password": "express",
+    "database": "express",
+    "host": "127.0.0.1",
+    "port": 8001,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "express",
+    "password": "express",
+    "database": "express",
+    "host": "127.0.0.1",
+    "port": 8001,
+    "dialect": "postgres"
+  }
+}
+
+
