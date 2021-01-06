@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  mysql-express:
+      image: mysql:5.7
+      container_name: mysql-express
+      environment:
+        MYSQL_ROOT_PASSWORD: express
+        MYSQL_DATABASE: express
+        MYSQL_USER: express
+        MYSQL_PASSWORD: express
+      ports:
+        - 8001:3306
