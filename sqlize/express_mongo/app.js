@@ -1,7 +1,8 @@
 // app.js
 const express = require('express');
 const bodyParser = require('body-parser');
-const product = require('./routes/product.route'); // Imports routes for the products
+const product = require('./routes/product.route');
+const keycloak = require("./config/keycloak").initKeycloak(); // Imports routes for the products
 // initialize our express app
 const app = express();
 app.use(bodyParser.json());
@@ -14,6 +15,10 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 let port = 8000;
+
+app.use(keycloak.middleware(
+  { admin: '/products'}
+))
 app.use('/products', product);
 
 app.listen(port, () => {
