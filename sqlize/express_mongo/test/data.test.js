@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('../bin/www.js');
+const app = require('../app.js');
 const chai = require('chai');
 const request = require('supertest');
 
@@ -9,7 +9,8 @@ const expect = chai.expect;
 describe('Data API Integration Test', async () => {
 
     let task = {
-        title: 'new data'
+        name: 'new data',
+        price: 4,
     };
     let badTask = {
         name: 'new data'
@@ -30,12 +31,12 @@ describe('Data API Integration Test', async () => {
       });
     }
 
-      describe('GET /api/data', () => {
+      describe('GET /products/', () => {
         it('should get all data', (done) => {
-            request(app) .get('/api/data') .end((err, res) => {
+            request(app) .get('/products') .end((err, res) => {
                 expect(res.statusCode).to.equal(200);
-                expect(res.body).to.be.an('array');
-                expect(res.body).to.be.empty;
+                expect(res.body).to.be.an('array').to.not.be.empty;
+                //expect(res.body).to.be.empty;
                 
                 done();
             });
@@ -53,15 +54,13 @@ describe('Data API Integration Test', async () => {
             });
         });
       });      
-    describe("POST /api/data", () => {
+    describe("POST /products/create", () => {
       it("should create data entry", (done) => {
         request(app)
-          .post("/api/data")
+          .post("/products/create")
           .send(task)
           .end((err, res) => {
-            expect(res.statusCode).to.equal(201);
-            expect(res.body.title).to.equal("new data");
-            task = res.body;
+            expect(res.statusCode).to.equal(200);
             done();
           });
       });
