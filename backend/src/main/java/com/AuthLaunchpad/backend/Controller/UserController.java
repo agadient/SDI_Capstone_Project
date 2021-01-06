@@ -23,8 +23,8 @@ public class UserController {
 
     final String authServerUrl = "http://localhost:8080/auth";
     final String realm = "baby-yoda";
-    final String clientId = "react-spring-postgresql";
-    final String clientSecret = "44a25174-62a2-4909-8053-b7ab04f35f06";
+    final String clientId = "react-spring-mysql";
+    final String clientSecret = "5f929f75-4d39-40e3-987c-c60fc76eda7e";
 
 
     @PostMapping(path = "/signin")

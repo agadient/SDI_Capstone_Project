@@ -2,7 +2,7 @@
 version: '3.7'
 
 services:
-  postgres-express:
+  postgres-spring:
       image: postgres:12.2
       container_name: postgres-spring
       environment:
