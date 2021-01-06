@@ -1,12 +1,13 @@
 version: '3.7'
 
 services:
-  postgres-express:
-      image: postgres:12.2
-      container_name: postgres-express
+  mongodb:
+      image: mongo:latest
+      container_name: mongodb
       environment:
-        POSTGRES_DB: express
-        POSTGRES_USER: express
-        POSTGRES_PASSWORD: express
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: root
+        MONGODB_USER: express
+        MONGODB_PASS: express
       ports:
-        - 8001:5432
+        - 8010:27017

@@ -1,24 +1,21 @@
+// app.js
 const express = require('express');
 const bodyParser = require('body-parser');
-const keycloak = require("./config/keycloak").initKeycloak();
-const cors = require('cors')
-// Set up the express app
+const product = require('./routes/product.route'); // Imports routes for the products
+// initialize our express app
 const app = express();
-
-// Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-/*app.use(keycloak.middleware(
-  { admin: '/auth'}
-))*/
-app.use(cors({origin: 'http://localhost:8000'}));
+const mongoose = require('mongoose');
+let mongoDB = 'mongodb://root:root@localhost:8010/admin';
+mongoose.connect(mongoDB, {useNewUrlParser:true, useUnifiedTopology:true});
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// Setup a default catch-all route that sends back a welcome message in JSON format.
-require('./routes')(app);
-app.get('/', (req, res) => res.status(200).send({
-  message: 'Welcome to the beginning of nothingness.',
-}));
+let port = 8000;
+app.use('/products', product);
 
-app.get('/auth', (req, res)=> res.status(200).send({message: "Hi!"}))
-
-module.exports = app;
+app.listen(port, () => {
+    console.log('Server is up and running on port number ' + port);
+});
