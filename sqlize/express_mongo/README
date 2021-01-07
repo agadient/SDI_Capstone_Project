@@ -6,4 +6,5 @@
 6. refactor/cleanup code
 7. add pretty CSS/Bootstrap
 8. Init keycloak instance so we can unit test with it?
-9. Add stuff to platform one maybe?
+9. README
+10. Add stuff to platform one maybe?
