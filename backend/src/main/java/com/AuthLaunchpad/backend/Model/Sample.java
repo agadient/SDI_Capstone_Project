@@ -1,31 +1,31 @@
 package com.AuthLaunchPad.backend.Model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "Sample")
+@Document(collection = "sample")
 public class Sample {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String sampleData;
 
     public Sample() {
-
     }
 
+    public Sample(String sampleData){
+        this.sampleData = sampleData;
+    }
 
-    public Sample(Long id, String sampleData){
+    public Sample(String id, String sampleData){
         this.id = id;
         this.sampleData = sampleData;
     }
 
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -3,10 +3,12 @@ package com.AuthLaunchPad.backend.Controller;
 import com.AuthLaunchPad.backend.Model.Sample;
 import com.AuthLaunchPad.backend.View.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class SampleController {
@@ -19,13 +21,30 @@ public class SampleController {
     }
 
     @GetMapping("/users/data")
-    public Iterable<Sample> all() {
-        return this.repository.findAll();
+    public ResponseEntity<List<Sample>> all(@RequestParam(required = false) String sampleData) {
+        try {
+            List<Sample> sample = new ArrayList<Sample>();
+            if (sampleData == null)
+                this.repository.findAll().forEach(sample::add);
+            if (sample.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(sample, HttpStatus.OK);
+        }
+            catch(Exception error){
+                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
     }
 
 
     @PostMapping("/users/data")
-    public Sample create(@RequestBody Sample sample){
-        return this.repository.save(sample);
+    public ResponseEntity<Sample> createSample(@RequestBody Sample sample){
+        try {
+            Sample _sample = repository.save(new Sample(sample.getSampleData()));
+            return new ResponseEntity<>(_sample, HttpStatus.CREATED);
+        }catch(Exception error){
+                return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
-}
+};

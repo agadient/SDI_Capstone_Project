@@ -30,8 +30,10 @@ public class SampleControllerTest {
     SampleRepository repository;
 
     @BeforeEach
-    void init() {
-        repository.save(new Sample(1L, "Sample Data that has been inserted"));
+    void init()
+    {
+        repository.deleteAll();
+        repository.save(new Sample("Sample Data that has been inserted"));
    }
 
     @Test
@@ -42,22 +44,19 @@ public class SampleControllerTest {
 
         this.mvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.[0]id", equalTo(1)))
                 .andExpect(jsonPath("$.[0]sampleData", equalTo("Sample Data that has been inserted"))
                 );
     }
 
     @Test
-    @Transactional
     @WithMockAuthentication(authorities = "user")
-    public void postData() throws Exception{
+    public void postData() throws Exception {
         MockHttpServletRequestBuilder request = post("/users/data")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"sampleData\": \"Postgres is lame\"}");
 
         this.mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", equalTo(2)))
+                .andExpect(status().is(201))
                 .andExpect(jsonPath("$.sampleData", equalTo("Postgres is lame"))
                 );
     }
