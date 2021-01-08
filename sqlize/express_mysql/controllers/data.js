@@ -1,4 +1,5 @@
 const DataExample = require('../models').DataExample;
+const jwt_decode = require('jwt-decode');
 
 module.exports = {
   create(req, res) {
@@ -6,7 +7,7 @@ module.exports = {
       .create({
         title: req.body.title,
       })
-      .then(data => res.status(201).send(data))
+      .then(() => res.status(201).send())
       .catch(error => res.status(400).send(error));
   },
   list(req, res) {
@@ -15,4 +16,9 @@ module.exports = {
       .then(data => res.status(200).send(data))
       .catch(error => res.status(400).send(error));
   },
+  parse(req, res) {
+    let token = req.headers.authorization;
+    const decoded = jwt_decode(token);
+    res.send(decoded);
+  }
 };
