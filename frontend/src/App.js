@@ -38,7 +38,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        Input data to stick in database: <input type="text" onChange={this.updateTitle}></input><button onSubmit={this.writeDatabase}>Send Data to Database</button>
+        Input data to stick in database: <input name="updateTitle" type="text" onChange={this.updateTitle}></input><button onSubmit={this.writeDatabase}>Send Data to Database</button>
         <br/>
         Input encoded JWT token to parse: <textarea type="text" onChange={this.updateToken}></textarea><button onSubmit={this.sendToken}>Send Data to Database</button>
         <br/>
