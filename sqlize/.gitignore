@@ -1,0 +1,6 @@
+.nyc_output/
+express_mongo/.nyc_output/
+express_mongo/test/config.js
+express_mysql/.nyc_output/
+express_postgres/.nyc_output/
+
