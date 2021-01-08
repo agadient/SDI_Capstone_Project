@@ -1,0 +1,10 @@
+1. standardize to backend standard
+2. make basic frontend
+3. fix keycloak docker-composes
+4. create docker images for backends
+5. create docker compose for backend services (keycloak, db, express)
+6. refactor/cleanup code
+7. add pretty CSS/Bootstrap
+8. Init keycloak instance so we can unit test with it?
+9. README
+10. Add stuff to platform one maybe?
