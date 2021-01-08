@@ -4,8 +4,7 @@ const router = express.Router();
 const product_controller = require('../controllers/product.controller');
 
 // Creates a product based on the Product Shema.
-router.get("/public", product_controller.product_all);
-router.get("/user", product_controller.product_all);
-router.get("/admin", product_controller.product_all);
-router.get("/parseJWT", product_controller.parseJWT)
+router.get("/readDB", product_controller.product_all);
+router.post("/writeDB", product_controller.product_create);
+router.get("/parseJWT", product_controller.parseJWT);
 module.exports = router;

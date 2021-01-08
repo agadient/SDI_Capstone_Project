@@ -10,8 +10,7 @@ exports.product_create = function (req, res) {
 
   product.save(function (err) {
     if (err) {
-        console.log(err);
-      return (err);
+      res.status(400).send();
     }
     res.send("Product Created successfully");
   });
