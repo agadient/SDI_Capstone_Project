@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 
 export default function App(){
 
-
-    // this.state = {
-    //   title: "",
-    //   databaseData: [],
-    //   JWTencodedtoken: ""
    
    const [status, setStatus] = useState();
    const [tokenData, setTokenData] = useState("Token");
@@ -33,7 +28,7 @@ export default function App(){
   
     return (
       <div>
-        Input data to stick in database: <input name="updateTitle" type="text" onChange={(event)=> handleChange(event)}></input><button onSubmit={writeDatabase}>Send Data to Database</button>
+        Input data to stick in database: <input name="sampledata" className="sampledata" type="text" onChange={(event)=> handleChange(event)}></input><button onSubmit={writeDatabase}>Send Data to Database</button>
         <br/>
         Input encoded JWT token to parse: <textarea name="token" type="text" onChange={(event)=> handleChange(event)}></textarea><button onSubmit={sendToken}>Send Data to Database</button>
         <br/>
