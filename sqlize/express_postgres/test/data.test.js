@@ -31,55 +31,55 @@ describe('Data API Integration Test', async () => {
       });
     }
 
-      describe("GET /public", () => {
-        it("should get empty data array", (done) => {
-          request(app)
-            .get("/public")
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(200);
-              expect(res.body).to.be.an("array").to.be.empty;
-              //expect(res.body).to.be.empty;
-
-              done();
-            });
-        });
+      describe("POST /writeDB", () => {
+      it("should fail as we are sending an invalid \"task\"", (done) => {
+        request(app)
+          .post("/writeDB")
+          .send(badTask)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(400);
+            done();
+          });
       });
+    });
 
-      describe("GET /user", () => {
-        it("should get empty data array", (done) => {
-          request(app)
-            .get("/user")
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(200);
-              expect(res.body).to.be.an("array").to.be.empty;
-              done();
-            });
-        });
+    describe("POST /writeDB", () => {
+      it("should write the \"task\" object to the database", (done) => {
+        request(app)
+          .post("/writeDB")
+          .send(task)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(201);
+            task = res.body
+            done();
+          });
       });
+    });
 
-      describe("GET /admin", () => {
-        it("should get empty data array", (done) => {
-          request(app)
-            .get("/admin")
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(200);
-              expect(res.body).to.be.an("array").to.be.empty;
-              done();
-            });
-        });
+    describe("GET /readDB", () => {
+      it("should get empty data array", (done) => {
+        request(app)
+          .get("/readDB")
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.be.an("array").to.be.not.empty;
+            done();
+          });
       });
+    });
 
-      describe("GET /parseJWT", () => {
-        it("should return parsed JWT", (done) => {
-          request(app)
-            .get("/parseJWT")
-            .set("Authorization", token)
-            .end((err, res) => {
-              expect(res.statusCode).to.equal(200);
-              expect(res.body).to.be.an("Object");
-              done();
-            });
+    describe("GET /parseJWT", () => {
+      it("should return parsed JWT", (done) => {
+        request(app)
+          .get("/parseJWT")
+          .set("Authorization", token)
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.be.an("Object");
+            done();
+          });
+
         });
-      });
-
-});
+    });
+      
+  });
