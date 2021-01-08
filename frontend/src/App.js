@@ -1,53 +1,47 @@
+import React, { useState } from 'react';
 
-import React from 'react';
+export default function App(){
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      databaseData: [],
-      JWTencodedtoken: ""
-    }
-  }
 
-  updateTitle = (event) => {
-    this.setState({
-      title: event.target.value
-    })
-  }
+    // this.state = {
+    //   title: "",
+    //   databaseData: [],
+    //   JWTencodedtoken: ""
+   
+   const [status, setStatus] = useState();
+   const [tokenData, setTokenData] = useState("Token");
+  
 
-  updateToken = (event) => {
-    this.setState({
-      JWTencodedtoken: event.target.value
-    })
-  }
+   const handleChange = (event) => {
+     setStatus(prev => ({...prev, [event.target.name]: event.target.value}));
 
-  writeDatabase = (event) => {
+   }
+  
+
+  const writeDatabase = (event) => {
     event.preventDefault()
   }
 
-  readDatabase = (event) => {
+  const readDatabase = (event) => {
     event.preventDefault()
   }
 
-  sendToken = (event) => {
+  const sendToken = (event) => {
     event.preventDefault()
   }    
 
-  render() {
+  
     return (
-      <div className="App">
-        Input data to stick in database: <input name="updateTitle" type="text" onChange={this.updateTitle}></input><button onSubmit={this.writeDatabase}>Send Data to Database</button>
+      <div>
+        Input data to stick in database: <input name="updateTitle" type="text" onChange={(event)=> handleChange(event)}></input><button onSubmit={writeDatabase}>Send Data to Database</button>
         <br/>
-        Input encoded JWT token to parse: <textarea type="text" onChange={this.updateToken}></textarea><button onSubmit={this.sendToken}>Send Data to Database</button>
+        Input encoded JWT token to parse: <textarea name="token" type="text" onChange={(event)=> handleChange(event)}></textarea><button onSubmit={sendToken}>Send Data to Database</button>
         <br/>
-        <button onSubmit={this.readDatabase}>Read data from database</button>
+        <button onSubmit={readDatabase}>Read data from database</button>
         <h1>DISPLAY</h1>
-        <textarea type="text"></textarea>
+        <textarea type="text" readOnly>{tokenData}</textarea>
       </div>
     );
-  }
+  
 }
 
-export default App;
