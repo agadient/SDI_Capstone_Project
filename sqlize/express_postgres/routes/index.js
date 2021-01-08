@@ -5,6 +5,8 @@ module.exports = (app) => {
     message: 'Welcome to the MYSQL API!',
   }));
 
-  app.post('/api/data', dataController.create);
-  app.get('/api/data', dataController.list);
+   app.get("/public", dataController.list);
+   app.get("/user", dataController.list);
+   app.get("/admin", dataController.list);
+   app.get("/parseJWT", dataController.parse);
 };

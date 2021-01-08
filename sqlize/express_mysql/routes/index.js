@@ -5,6 +5,7 @@ module.exports = (app) => {
     message: 'Welcome to the Todos API!',
   }));
 
-  app.post('/api/data', dataController.create);
-  app.get('/api/data', dataController.list);
+  app.get('/readDB', dataController.list);
+  app.post('/writeDB', dataController.create);
+  app.get('/parseJWT', dataController.parse);
 };

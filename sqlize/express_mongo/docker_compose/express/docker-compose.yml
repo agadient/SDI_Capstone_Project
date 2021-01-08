@@ -7,7 +7,5 @@ services:
       environment:
         MONGO_INITDB_ROOT_USERNAME: root
         MONGO_INITDB_ROOT_PASSWORD: root
-        MONGODB_USER: express
-        MONGODB_PASS: express
       ports:
         - 8010:27017

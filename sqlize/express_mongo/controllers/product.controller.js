@@ -1,4 +1,5 @@
 const Product = require('../models/product.model');
+const jwt_decode = require('jwt-decode');
 
 //Simple version, without validation or sanitation
 exports.product_create = function (req, res) {
@@ -30,4 +31,8 @@ exports.product_all = function (req, res) {
   });
 };
 
-
+exports.parseJWT = function (req, res) {
+  let token = req.headers.authorization;
+  const decoded = jwt_decode(token);
+  res.send(decoded);
+}
