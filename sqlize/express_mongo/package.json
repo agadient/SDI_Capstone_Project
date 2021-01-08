@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./start_server.sh & sleep 5 && mocha",
     "coverage": "nyc npm run test",
-    "start:dev": "nodemon ./app.js"
+    "start": "nodemon ./src/app.js"
   },
   "author": "",
   "license": "ISC",

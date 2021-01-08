@@ -1,9 +1,9 @@
 'use strict';
 const config = require('./config');
-const app = require('../app.js');
+const app = require('../src/app.js');
 const chai = require('chai');
 const request = require('supertest');
-const {token, tokenParse} = require('../data/token.js')
+const {token, tokenParse} = require('../src/data/token.js')
 
 const expect = chai.expect;
 
