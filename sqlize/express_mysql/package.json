@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./start_server.sh & sleep 5 && mocha",
+    "test": "./start_database.sh & sleep 5 && mocha",
     "coverage": "nyc npm run test",
-    "start:dev": "nodemon ./bin/www.js"
+    "start": "nodemon ./src/bin/www.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +16,6 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "jwt-decode": "^3.1.2",
-    "keycloak-connect": "^12.0.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
