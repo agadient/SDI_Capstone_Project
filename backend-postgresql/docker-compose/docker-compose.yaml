@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  postgres-express:
+      image: postgres:12.2
+      container_name: postgres-spring
+      environment:
+        POSTGRES_DB: spring
+        POSTGRES_USER: spring
+        POSTGRES_PASSWORD: spring
+      ports:
+        - 8001:5432
