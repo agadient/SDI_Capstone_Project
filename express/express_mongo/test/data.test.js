@@ -9,7 +9,7 @@ const expect = chai.expect;
 
 describe("Data API Integration Test", async () => {
   let task = {
-    title: "new data",
+    sampleData: "new data",
   };
   let badTask = {
     name: "new data",
@@ -30,7 +30,7 @@ describe("Data API Integration Test", async () => {
     });
   }
 
-  describe("POST /writeDB", () => {
+  describe("POST /writeDB badtask", () => {
     it('should fail as we are sending an invalid "task"', (done) => {
       request(app)
         .post("/writeDB")

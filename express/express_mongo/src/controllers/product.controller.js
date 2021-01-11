@@ -4,7 +4,7 @@ const jwt_decode = require('jwt-decode');
 //Simple version, without validation or sanitation
 exports.product_create = function (req, res) {
   let product = new Product({
-    title: req.body.title,
+    sampleData: req.body.sampleData,
   });
 
   product.save(function (err) {
