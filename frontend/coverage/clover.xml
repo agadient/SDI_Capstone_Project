@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1610395767276" clover="3.2.0">
-  <project timestamp="1610395767276" name="All files">
+<coverage generated="1610397907553" clover="3.2.0">
+  <project timestamp="1610397907553" name="All files">
     <metrics statements="30" coveredstatements="23" conditionals="10" coveredconditionals="5" methods="11" coveredmethods="9" elements="51" coveredelements="37" complexity="0" loc="30" ncloc="30" packages="1" files="3" classes="3"/>
     <file name="App.js" path="C:\Users\rober\Desktop\Supra_Coders\SDI_Capstone_Project\frontend\src\App.js">
       <metrics statements="20" coveredstatements="19" conditionals="6" coveredconditionals="3" methods="9" coveredmethods="8"/>

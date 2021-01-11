@@ -39,11 +39,13 @@ export default function App(){
 
   const sendToken = async (event) => {
     let response = await fetch("http://localhost:8000/parseJWT");
-    let data = await response.json();
     
-    if (response.status === 200)
-      setDisplayData(Object.entries(data).map(([key, val]) => (<div className="sample-data-class"><span>{key}: </span> <span>{val}</span></div>)));
-    else setDisplayData("No valid token to parse");
+    
+    if (response.status === 200){
+      let data = await response.json();
+      setDisplayData(Object.entries(data).map(([key, val]) => (<div className="sample-data-class"><span>{key}: </span> <span>{val}</span></div>)))
+    } else setDisplayData("No valid token to parse");
+    
   }    
 
   return (
