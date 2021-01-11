@@ -9,5 +9,8 @@ test('the page gets displayed with an input', () => {
     const wrapper = shallow(<App/>);
 
     
-expect(wrapper.find('input')).toBeDefined();
+expect(wrapper.find('.sampledata')).toBeDefined();
+expect(wrapper.find('.display-data-class')).toBeDefined();
+expect(wrapper.find('.sample-data-class')).toBeDefined();
+
 })

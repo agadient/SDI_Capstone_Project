@@ -33,7 +33,7 @@ export default function App(){
   const readDatabase = async(event) => {
     let response = await fetch("http://localhost:8000/readDB");
     let data = await response.json();
-    setDisplayData(data.map(each => (<div key={each.id}>{each.sampleData}</div>)));
+    setDisplayData(data.map(each => (<div className="sample-data-class" key={each.id}>{each.sampleData}</div>)));
     
   }
 
@@ -42,7 +42,7 @@ export default function App(){
     let data = await response.json();
     
     if (response.status === 200)
-      setDisplayData(Object.entries(data).map(([key, val]) => (<div><span>{key}: </span> <span>{val}</span></div>)));
+      setDisplayData(Object.entries(data).map(([key, val]) => (<div className="sample-data-class"><span>{key}: </span> <span>{val}</span></div>)));
     else setDisplayData("No valid token to parse");
   }    
 
@@ -50,17 +50,17 @@ export default function App(){
     <div>
     <div>
       Input data to stick in database: 
-        <input name="sampleData" className="sampledata" type="text" onChange={(event)=> handleChange(event)}/>
-        <button onClick={writeDatabase}>Send Data to Database</button>
+        <input name="sampleData" className="sampleData" type="text" onChange={(event)=> handleChange(event)}/>
+        <button className='sendData' onClick={writeDatabase}>Send Data to Database</button>
     </div>
     <div>
   
-        <button onClick={sendToken}>Parse token</button>
+        <button className='parseJWT' onClick={sendToken}>Parse token</button>
     </div>
   
-    <div>  <button onClick={readDatabase}>Read data from database</button> </div>
+    <div>  <button className='readData' onClick={readDatabase}>Read data from database</button> </div>
     <div>  <h1>DISPLAY</h1>
-      <div>{displayData}</div>
+      <div className="display-data-class">{displayData}</div>
       </div>
     </div>
   );
