@@ -4,13 +4,13 @@ const jwt_decode = require('jwt-decode');
 //Simple version, without validation or sanitation
 exports.product_create = function (req, res) {
   let product = new Product({
-    name: req.body.name,
-    price: req.body.price,
+    sampleData: req.body.sampleData,
   });
 
   product.save(function (err) {
     if (err) {
       res.status(400).send();
+      //console.log(err);
       return;
     }
     res.send("Product Created successfully");

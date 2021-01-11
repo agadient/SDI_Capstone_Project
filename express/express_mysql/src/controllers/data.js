@@ -5,7 +5,7 @@ module.exports = {
   create(req, res) {
     return DataExample
       .create({
-        title: req.body.title,
+        sampleData: req.body.sampleData,
       })
       .then(() => res.status(201).send())
       .catch(error => res.status(400).send(error));
