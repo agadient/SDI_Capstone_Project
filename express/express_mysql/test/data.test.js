@@ -10,7 +10,7 @@ const expect = chai.expect;
 describe('Data API Integration Test', async () => {
 
     let task = {
-        title: 'new data'
+        sampleData: 'new data'
     };
     let badTask = {
         name: 'new data'

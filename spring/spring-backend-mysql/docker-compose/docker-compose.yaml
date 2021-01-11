@@ -1,0 +1,13 @@
+
+version: "3.2" # Version of docker-compose to use
+services:
+  mysql-spring: # Name of the service
+    image: mysql:latest # Image (local or public) to create the container from
+    container_name: mysql-spring
+    environment: # Environment variables required by the image
+       MYSQL_ROOT_PASSWORD: rootpassword
+       MYSQL_DATABASE: spring
+       MYSQL_USER: spring
+       MYSQL_PASSWORD: spring
+    ports:
+      - 8001:3306

@@ -1,5 +1,5 @@
 'use strict';
-const config = require('./config');
+//const config = require('./config');
 const app = require('../src/app.js');
 const chai = require('chai');
 const request = require('supertest');
@@ -9,8 +9,7 @@ const expect = chai.expect;
 
 describe("Data API Integration Test", async () => {
   let task = {
-    name: "new data",
-    price: 4,
+    sampleData: "new data",
   };
   let badTask = {
     name: "new data",
@@ -31,7 +30,7 @@ describe("Data API Integration Test", async () => {
     });
   }
 
-  describe("POST /writeDB", () => {
+  describe("POST /writeDB badtask", () => {
     it('should fail as we are sending an invalid "task"', (done) => {
       request(app)
         .post("/writeDB")
