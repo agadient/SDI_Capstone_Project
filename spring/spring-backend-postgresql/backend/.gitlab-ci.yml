@@ -1,0 +1,46 @@
+include:
+  - project: 'platform-one/devops/pipeline-templates'
+    ref: master
+    file: '/templates/gradle.yml'
+
+variables:
+  TEAM: $CI_PROJECT_NAMESPACE
+  APP: $CI_PROJECT_NAME
+
+  ZAP_URL: "https://sdi01.staging.dso.mil/"
+  ZAP_SCAN: zap-baseline.py
+
+  DEPENDENCY_SOURCES_LIST: "./**/build/libs/*.jar"
+
+  FORTIFY_PROJECT_VERSION: ""
+
+  SONAR_CPD_EXCLUSIONS: ""
+
+  PIPELINE_DEFAULT_IMAGE: ${DOCKER_REGISTRY}/ironbank/gradle-jdk11:6.6.60
+
+unit tests:
+  allow_failure: true
+
+trufflehog:
+  allow_failure: true
+
+dependency check:
+  allow_failure: true
+
+fortify:
+  allow_failure: true
+
+sonarqube:
+  allow_failure: true
+
+twistlock scan:
+  allow_failure: true
+
+deploy staging:
+  allow_failure: true
+
+e2e tests:
+  allow_failure: true
+
+pen test:
+  allow_failure: true
