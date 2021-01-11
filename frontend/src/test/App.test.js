@@ -5,7 +5,7 @@ import App from '../App';
 
 configure({adapter: new Adapter()});
 
-test('the page gets displayed', () => {
+test('the page gets displayed with an input', () => {
     const wrapper = shallow(<App/>);
 
     
