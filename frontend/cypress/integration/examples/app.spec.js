@@ -9,7 +9,7 @@ context('Actions', () => {
 
   it('has input field sample data', () => {
     
-    cy.get('.sampleData')
+    cy.get('input[name="sampleData"]')
       .type('sample data').should('have.value', 'sample data')
 
     cy.get('.sendData').click();
