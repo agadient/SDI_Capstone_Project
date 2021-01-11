@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   DataExample.init({
-    title: {
+    sampleData: {
       type : DataTypes.STRING,
       allowNull : false,
     }

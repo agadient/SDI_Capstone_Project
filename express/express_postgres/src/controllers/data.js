@@ -4,7 +4,7 @@ const jwt_decode = require('jwt-decode');
 module.exports = {
   create(req, res) {
     return DataExample.create({
-      title: req.body.title,
+      sampleData: req.body.sampleData,
     })
       .then((data) => res.status(201).send(data))
       .catch((error) => res.status(400).send(error));
