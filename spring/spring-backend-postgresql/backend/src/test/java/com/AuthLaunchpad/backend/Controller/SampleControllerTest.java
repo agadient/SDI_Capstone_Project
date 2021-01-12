@@ -52,12 +52,12 @@ public class SampleControllerTest {
      public void postData() throws Exception{
         MockHttpServletRequestBuilder request = post("/writeDB")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"sampleData\": \"Postgres is lame\"}");
+                .content("{\"sampleData\": \"this is sample data\"}");
 
         this.mvc.perform(request)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", equalTo(2)))
-                .andExpect(jsonPath("$.sampleData", equalTo("Postgres is lame"))
+                .andExpect(jsonPath("$.sampleData", equalTo("this is sample data"))
                 );
     }
 
