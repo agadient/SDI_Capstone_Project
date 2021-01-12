@@ -29,7 +29,7 @@ public class ParsedJWT {
 
 
     public ParsedJWT(String header) {
-        DecodedJWT decoded = JWT.decode(header.split("Bearer ")[1]);
+        DecodedJWT decoded = JWT.decode(header.split(" ")[1]);
         this.exp = (decoded.getClaim("exp").asLong());
         this.iat = (decoded.getClaim("iat").asLong());
         this.auth_time = (decoded.getClaim("auth_time").asLong());
