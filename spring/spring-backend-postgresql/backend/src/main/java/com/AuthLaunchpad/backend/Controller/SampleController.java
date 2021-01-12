@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class SampleController {
 
@@ -35,6 +36,7 @@ public class SampleController {
         ParsedJWT p = new ParsedJWT(header);
         Gson gson = new Gson();
         String json = gson.toJson(p);
+        System.out.println(header);
         return json;
     }
 }
