@@ -17,13 +17,6 @@ exports.product_create = function (req, res) {
   });
 };
 
-exports.product_details = function (req, res) {
-  Product.findById(req.params.id, function (err, product) {
-    if (err) return err;
-    res.send(product);
-  });
-};
-
 exports.product_all = function (req, res) {
   Product.find(({}), function (err, product) {
     if (err) return (err);

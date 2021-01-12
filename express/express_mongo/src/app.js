@@ -3,10 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const product = require('./routes/product.route');
 const product_controller = require('./controllers/product.controller');
+const cors = require('cors')
 // initialize our express app
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 const mongoose = require('mongoose');
 let mongoDB = 'mongodb://root:root@localhost:8010/admin';
